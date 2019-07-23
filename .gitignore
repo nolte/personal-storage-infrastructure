@@ -1,0 +1,10 @@
+serverdata
+generated_reports
+ext_debs
+.tox
+*.retry
+*.vagrant
+*.terraform
+*.tfstate
+*.tfstate.*
+*.vscode

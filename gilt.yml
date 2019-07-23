@@ -1,0 +1,4 @@
+---
+- git: https://github.com/nolte/ansible_playbook-baseline-online-server.git
+  version: master
+  dst: ext_debs/ansible_playbook-baseline-online-server/

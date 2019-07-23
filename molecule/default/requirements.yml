@@ -1,0 +1,15 @@
+---
+- name: arillso.logrotate
+- name: geerlingguy.docker
+- name: geerlingguy.pip
+- name: linuxhq.elrepo
+- name: paulfantom.restic
+- name: robertdebock.bootstrap
+- name: robertdebock.epel
+- name: robertdebock.fail2ban
+- name: ypsman.sshd_config
+- name: manala.timezone
+- name: geerlingguy.nginx
+- name: geerlingguy.certbot
+- name: arillso.logrotate
+- name: damianlewis.ssl

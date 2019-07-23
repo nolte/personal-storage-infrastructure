@@ -1,0 +1,33 @@
+---
+
+- name: install virtualenv
+  pip:
+    name:
+      - "pyOpenSSL"
+      - "requests==2.6.0"
+
+- package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - certbot-nginx
+    - python2-certbot-nginx
+
+- include_role:
+    name: geerlingguy.certbot
+  vars:
+    certbot_auto_renew: true
+    certbot_auto_renew_user: "{{ ansible_user | default(lookup('env', 'USER')) }}"
+    certbot_auto_renew_hour: 3
+    certbot_auto_renew_minute: 30
+    certbot_auto_renew_options: "--quiet --no-self-upgrade"
+    certbot_admin_email: "{{ letsencrypt_email }}"
+    certbot_create_if_missing: true
+    certbot_create_method: standalone
+    certbot_certs:
+      - domains:
+          - "{{ storage_server_name }}"
+
+- set_fact:
+    ssl_local_cert_path: "/etc/letsencrypt/live/{{ storage_server_name }}/fullchain.pem"
+    ssl_local_key_path: "/etc/letsencrypt/live/{{ storage_server_name }}/privkey.pem"

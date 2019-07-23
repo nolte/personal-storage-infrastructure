@@ -1,0 +1,8 @@
+mounts:
+ - [ ${runtime_storage_device_id}, ${runtime_storage_path}, "${runtime_storage_type}", "defaults,nofail,discard", "0", "0" ]
+%{ if docker_storage_active }
+ - [ ${docker_storage_device_id}, ${docker_storage_path}, "${docker_storage_type}", "defaults,nofail,discard", "0", "0" ]
+%{ endif }
+%{ if logs_storage_active }
+ - [ ${logs_storage_device_id}, ${logs_storage_path}, "${logs_storage_type}", "defaults,nofail,discard", "0", "0" ]
+%{ endif }

@@ -1,0 +1,5 @@
+storage_box_minio_basedir: /opt/minio
+storage_box_minio_data: "{{ storage_box_minio_basedir }}/data"
+storage_box_minio_config: "{{ storage_box_minio_basedir }}/config"
+storage_box_minio_host_port: 9000
+storage_box_certsbot_enabled: false

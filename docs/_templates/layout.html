@@ -1,0 +1,9 @@
+{% extends "!layout.html" %}
+{% set sticky_navigation = True %}
+{% set extra_css_files = ['_static/overrides.css'] %}
+{% block extrahead %}
+{{ super() }}
+{% endblock %}
+{% block footer %}
+{{ super() }}
+{% endblock %}

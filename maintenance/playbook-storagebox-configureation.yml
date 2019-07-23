@@ -1,0 +1,38 @@
+---
+- hosts: storagebox
+  become: true
+  tasks:
+
+    - name: ensure that minio storage path exists
+      file:
+        path: "{{ storage_box_minio_data }}"
+        state: directory
+        owner: root
+        group: root
+
+    - include_role:
+        name: configure-minio
+
+
+
+    - include_role:
+        name: arillso.logrotate
+      vars:
+        logrotate_applications:
+          - name: nginx
+            definitions:
+              - logs:
+                  - '/var/log/nginx/error.log'
+                  - '/var/log/nginx/access.log'
+                postrotate:
+                  - /bin/kill -USR1 `cat /var/run/nginx.pid 2>/dev/null` 2>/dev/null || true
+                options:
+                  - compress
+                  - missingok
+                  - sharedscripts
+                  - daily
+                  - rotate 7
+                  - maxage 7
+                  - maxsize 10M
+                  - notifempty
+                  - create

@@ -1,0 +1,12 @@
+---
+
+- include_role:
+    name: damianlewis.ssl
+  vars:
+    ssl_generate_full_chain_certificate: true
+    ssl_certificates:
+      - common_name: "{{ storage_server_name }}"
+
+- set_fact:
+    ssl_local_cert_path: "/etc/ssl/self-signed-certs/{{ storage_server_name }}.crt"
+    ssl_local_key_path: "/etc/ssl/private/{{ storage_server_name }}.key"

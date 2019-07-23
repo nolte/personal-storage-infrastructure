@@ -1,0 +1,59 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: parallels
+lint:
+  name: yamllint
+  enabled: true
+platforms:
+  - name: instance-1
+    box: centos/7
+    memory: 4096
+    cpus: 2
+    groups:
+      - storagebox
+      - dockerbased
+provisioner:
+  name: ansible
+#  config_options:
+#    defaults:
+#      callback_whitelist: profile_roles,profile_tasks,timer
+  inventory:
+    links:
+      group_vars: ../../inventory/vagrant/group_vars
+  playbooks:
+    converge: ../../maintenance/master-configure-system.yml
+  lint:
+    name: ansible-lint
+    enabled: false
+    options:
+      x:
+        - ANSIBLE0006
+        - ANSIBLE0010
+        - ANSIBLE0011
+        - ANSIBLE0016
+scenario:
+  name: default
+  test_sequence:
+    #- lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    - idempotence
+    - side_effect
+    - verify
+    - cleanup
+    - destroy
+verifier:
+  name: testinfra
+  directory: ../../test
+  enabled: false
+  lint:
+    name: flake8
+    enabled: false

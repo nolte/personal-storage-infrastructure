@@ -1,0 +1,4 @@
+---
+storage_box_minio_access_key: "mytestaccesskey"
+storage_box_minio_secret_key: "mytestsecretkey"
+storage_box_minio_data: /var/minio/data
