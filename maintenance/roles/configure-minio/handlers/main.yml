@@ -1,8 +1,4 @@
-- name: delete tempdir
-  file:
-    state: absent
-    path: "{{ tempfile_certs.path }}"
-
+---
 - name: restart firewalld
   service:
     name: firewalld

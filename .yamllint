@@ -1,6 +1,10 @@
 ---
 extends: default
 
+ignore: |
+  .terraform
+  .tox
+
 rules:
   braces:
     max-spaces-inside: 1

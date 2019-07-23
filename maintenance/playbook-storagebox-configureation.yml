@@ -13,8 +13,6 @@
     - include_role:
         name: configure-minio
 
-
-
     - include_role:
         name: arillso.logrotate
       vars:

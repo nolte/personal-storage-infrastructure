@@ -18,9 +18,9 @@ platforms:
       - dockerbased
 provisioner:
   name: ansible
-#  config_options:
-#    defaults:
-#      callback_whitelist: profile_roles,profile_tasks,timer
+  # config_options:
+  #   defaults:
+  #     callback_whitelist: profile_roles,profile_tasks,timer
   inventory:
     links:
       group_vars: ../../inventory/vagrant/group_vars
@@ -38,7 +38,7 @@ provisioner:
 scenario:
   name: default
   test_sequence:
-    #- lint
+    - lint
     - destroy
     - dependency
     - syntax
