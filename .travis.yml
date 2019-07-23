@@ -8,6 +8,10 @@ env:
 before_install:
   - pip install tox-travis
   - pip install -r requirements.txt
+  - sudo apt-get -qq update
+  - sudo apt-get install -y bsdtar
+  - wget -qO- https://releases.hashicorp.com/terraform/0.12.5/terraform_0.12.5_linux_amd64.zip | sudo bsdtar -xvf- -C /usr/bin
+  - sudo chmod +x /usr/bin/terraform
 install:
   - gilt overlay
 script:

@@ -4,8 +4,13 @@ repos:
     rev: v2.0.0
     hooks:
       - id: trailing-whitespace
-        exclude: ".md"
+        exclude: |
+            (?x)(
+                .md|
+                .bumpversion.cfg
+            )
       - id: end-of-file-fixer
+        exclude: ".bumpversion.cfg"
       - id: check-yaml
         exclude: "maintenance/*"
   - repo: 'https://github.com/adrienverge/yamllint'
@@ -13,3 +18,8 @@ repos:
     hooks:
       - id: yamllint
         exclude: "maintenance/*"
+  - repo: git://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.15.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
