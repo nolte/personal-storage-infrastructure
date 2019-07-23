@@ -5,7 +5,10 @@ env:
     - SCENARIO_NAME=fix_lint
     - SCENARIO_NAME=static_tests
     - SCENARIO_NAME=docs
-install:
+before_install:
   - pip install tox-travis
+  - pip install -r requirements.txt
+install:
+  - gilt overlay
 script:
   - tox -e ${SCENARIO_NAME}
