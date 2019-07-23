@@ -1,5 +1,7 @@
 # Private S3 Storage
 
+[![Github Project Stars](https://img.shields.io/github/stars/nolte/personal-storage-infrastructure.svg?label=Stars&style=social)](https://github.com/nolte/personal-storage-infrastructure) [![Travis CI build status](https://travis-ci.org/nolte/personal-storage-infrastructure.svg?branch=master)](https://travis-ci.org/nolte/personal-storage-infrastructure) [![Documentation Status](https://readthedocs.org/projects/personal-storage-infrastructure/badge/?version=latest)](https://personal-storage-infrastructure.readthedocs.io/en/stable/?badge=stable) [![Github Issue Tracking](https://img.shields.io/github/issues-raw/nolte/personal-storage-infrastructure.svg)](https://github.com/nolte/personal-storage-infrastructure) [![Github LatestRelease](https://img.shields.io/github/release/nolte/personal-storage-infrastructure.svg)](https://github.com/nolte/personal-storage-infrastructure)
+
 For hosting a private S3 Object storage we use [min.io](https://min.io/) at [hetzner.cloud](https://docs.hetzner.cloud), created with [Terraform](https://www.terraform.io/docs/providers/hcloud/index.html) and configured with Ansible.
 
 **Precondition**
